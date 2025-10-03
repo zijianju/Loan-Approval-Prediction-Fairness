@@ -8,7 +8,7 @@ Beyond achieving high predictive performance, the focus is on **responsible AI**
 - **Goal:** Predict loan default risk and audit subgroup fairness.
 - **Dataset:** ~91,000 records × 26 features (demographics, loan details, credit history).
 - **Target:** `loan_status` (1 = default, 0 = non-default).
-- **Models:** [LightGBM](https://lightgbm.readthedocs.io) and [CatBoost](https://catboost.ai) with Stratified K-Fold cross-validation.
+- **Models:** LightGBM and CatBoost with Stratified K-Fold cross-validation.
 
 
 ## Workflow
@@ -31,24 +31,6 @@ Beyond achieving high predictive performance, the focus is on **responsible AI**
    - **Stability check:** Gaussian noise injection (σ≈1%) → <1% accuracy drop.
    - **Fairness slices:** Subgroup metrics by *home ownership* and *loan grade*.
    - **Local interpretability:** LIME explanations for individual predictions.
-
-
-## Key Results
-- **Validation AUC:**  
-  - LightGBM: **0.957**  
-  - CatBoost: **0.958**
-- **Top predictors:** Income, interest rate, loan-to-income ratio, loan grade.
-- **Fairness findings:** Recall disparities between groups (e.g., under-representation for low-risk but minority categories).
-- **Robustness:** Models stable under small perturbations.
-
-
-## Visuals
-- ROC curves (LightGBM vs. CatBoost).  
-- Default rate by loan grade.  
-- Correlation heatmap of engineered features.  
-- Feature importance (LightGBM).  
-- Subgroup fairness tables (accuracy, precision, recall, F1 by group).  
-- LIME local explanations for individual loans.  
 
 
 ## Tech Stack
